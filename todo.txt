@@ -1,0 +1,10 @@
+1: Check if stuff is valid so that nobody can crash the server by entering a blank like:
+if(req.body.inputOne){
+  //THEN do stuff
+}
+
+2: Finish fixing varaible between clients (cookies)
+
+3: [Finished] 404 page
+ 
+4: dev page

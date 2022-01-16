@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html{
+        font-family: 'Segoe UI';
+        height: 100%;
+        overflow-x: hidden;
+      }
+
+      .medium{
+        width: 350px;
+        border-radius: 4px;
+        border: 3px solid #efccff;
+        height: 2px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      }
+
+      input[type="input"]{
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 6px;
+        outline: none;
+        font-family: 'Roboto Mono', Roboto, monospace;
+        padding: 3px;
+        border: 3px solid #D49AEE;
+      }
+
+      input[type="submit"]{
+        border: 3px solid #D49AEE;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 6px;
+        outline: none;
+        cursor: pointer;
+        font-family: 'Roboto Mono', Roboto, monospace;
+        background-color: #ffffff;
+        padding: 10px;
+        padding: 3px;
+      }
+
+      a{
+        color: #000000;
+        text-decoration: none;
+        border-bottom: 2px solid #efccff;
+        transistion: all 1.5s;
+      }
+
+      .menu{
+        width: 100%;
+        z-index: 100;
+        border-radius: 8px;
+        background-color: #ffffff;
+	      width: 40%;
+        margin: 0;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        display: none;
+      }
+
+      #changelog{
+        overflow-y: auto;
+        max-height: 400px;
+      }
+
+      button{
+        border: 3px solid #D49AEE;
+        background-color: #ffffff;
+        border-radius: 6px;
+        outline: none;
+        cursor: pointer;
+        font-family: 'Roboto Mono', Roboto, monospace;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 3px;
+      }
+
+      #menushadow{
+        background-color: #00000080;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+      }
+
+      #credit{
+        position: absolute;
+        right: 4px;
+        bottom: 2px;
+        font-family: 'Segoe UI';
+      }
+
+      img{
+        size: 20px;
+      }
+
+      .sub{
+        color: #7f7f7f;
+        font-size: 12px;
+      }
+
+      ::-webkit-scrollbar {
+        background: none;
+        border: none;
+        outline: none;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #ffffff;
+        border-radius: 8px;
+        border: 3px solid #efccff;
+      }
+
+      .smalluicard{
+        display: inline-block;
+        border-radius: 8px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        height: 240px;
+        width: 30%;
+        border: 3px solid #efccff;
+      }
+
+      .largeuicard{
+        border-radius: 8px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        width: calc(60% + 10px);
+        height: 240px;
+        margin: auto;
+        margin-top: 10px;
+        padding: 10px 10px 0px 0px;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid #efccff;
+      }
+
+      .bottomui{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      img{
+        height: 40px;
+        height: 40px;
+        margin-bottom: -2px;
+      }
+
+      h1{
+        line-height: 1em;
+        font-family: 'Segoe UI';
+      }
+
+      p{
+        font-family: 'Roboto Mono', Roboto, monospace;
+      }
+    </style>
+    <title>CASAAI Interface</title>
+    <meta name="description" content="Not-An-A.I. Chatbot!">
+    <meta name="keywords" content="CASAAI, Chatbot, Bot, Repl, Code, AI">
+    <meta name="author" content="Faisal">
+  </head>
+  <body align="center">
+    <h1><img src="https://i.ibb.co/RPF5BwJ/0860ecd679fe2599fcb53a49966b9fab-removebg-preview.png">illie Chatbot</h1>
+    <hr class="medium">
+    
+    <br>
+    <br>
+    <br>
+    <div class="bottomui">
+      <div class="smalluicard">
+        <form action="https://atiq-ki-bili.haxa.repl.co/prompt" method="post">
+          <p>Say something to Billie</p>
+          <p><%= response %></p>
+          <br>
+          <input type="input" placeholder="Hello!" name="inputOne"/>
+          <br>
+          <br>
+			    <input type="submit"/>
+        </form>
+      </div>
+      <div class="smalluicard">
+        <form action="https://atiq-ki-bili.haxa.repl.co/answer" method="post">
+          <p>Answer one of Billie's questions</p>
+          <p name="question" id="question"><%= question %></p>
+          <p id="response"></p>
+          <br>
+          <input type="input" placeholder="Hmmm..." name="answer" id="answer"/>
+          <br>
+          <br>
+			    <input type="submit"/>
+        </form>
+        <form action="https://atiq-ki-bili.haxa.repl.co/regenerate" method="post">
+        <input type="submit" value="New question"/>
+        </form>
+      </div>
+    </div>
+    <div class="largeuicard">
+      <p>Welcome to the CASAAI interface! CASAAI stands for Butcher, and was developed by fasih4444. Here you can converse with Casai, either by answering or asking questions! Also, don't worry if Billie asks a personal or strange question, just press the button labeled "Generate New Question"! You can find fasih4444 on <a href="https://github.com/fasih4444" target="new">Github</a> or his 
+      <a href="https://catr3kd.weebly.com/" target="new">Website</a>. 
+    </div>
+    <br>
+   
+    </script>
+    </small>
+  </body>
+</html>
+<script>
+
+  var instructions = <%= instructions %>;
+
+  function openChange(){
+    document.getElementById("changelog").style.display = "block";
+    document.getElementById("menushadow").style.display = "block";
+  }
+
+  function openAgree(){
+    document.getElementById("agree").style.display = "block";
+    document.getElementById("menushadow").style.display = "block";
+  }
+
+  function closeMenu(){
+    document.getElementById("changelog").style.display = "none";
+    document.getElementById("menushadow").style.display = "none";
+    document.getElementById("agree").style.display = "none";
+  }
+
+  if(instructions){
+    openAgree();
+  }
+</script>
